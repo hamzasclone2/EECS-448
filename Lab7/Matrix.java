@@ -32,4 +32,14 @@ public class Matrix {
 		}
 		return sub;
 	}
+	
+	static double[][] inverse(int size, double[][] matrix){
+		double[][] inverse = new double[size][size];
+		for(int i=0; i<size; i++){
+			for(int j=0; j<size; j++){
+				inverse[i][j] = Math.pow(-1.0, (double) i +j) * determinant(size, subMatrix(size, j, i, matrix)) / determinant(size, matrix);
+			}
+		}
+		return inverse;
+	}
 }
